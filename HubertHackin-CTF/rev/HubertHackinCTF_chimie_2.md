@@ -2,22 +2,24 @@
 
 ## Introduction
 
-### Description
-```
-J'ai retrouvé mes notes de chimies. J'avais noté des informations importantes dessus mais je ne les vois pas."
-```
 
-`Link` : [Chimie 2](https://ctf.hackin.ca/challenges#Chimie%202-161)
+**Link** : [Chimie 2](https://ctf.hackin.ca/challenges#Chimie%202-161)
 
-`Points` : 100
+**Points** : 100
 
-`Category` : Reverse engineering
+**Category** : Reverse engineering
 
-## 1. Analysis
+#### Problem
+
+> J'ai retrouvé mes notes de chimies. 
+> J'avais noté des informations importantes dessus 
+> mais je ne les vois pas.
+
+## Solution
 
 We are given a file called `chimie2.ps`. 
 
-### 1.1 Flag encoding
+### 1. Analysis
 
 Just like `Chimie 1`, the flag is encoded and the decoding function is given.
 However, this time, the flag is in the form of an array.
@@ -29,9 +31,9 @@ However, this time, the flag is in the form of an array.
 
 Trying to display the flag like in the last challenge outputs an error, since it is not a string.
 
-## 2. Solution
+### 2. Displaying the flag
 
-### 2.1 Printing the contents of the decoded flag
+#### 2.1 Printing the contents of the decoded flag
 
 By reading the program, we see that the flag has been encoded and the data is in memory.
 To access it, we can run `gs` with `chimie2.ps` :
@@ -54,7 +56,7 @@ Which will output the following :
 
 The elements appear to be numbers between 0-255, which means they might be the decimal representation of ascii characters.
 
-### 2.2 Decode decimal to ASCII
+#### 2.2 Decode decimal to ASCII
 
 We can use an online decoder like [this one](https://www.dcode.fr/ascii-code), or do it from the command line :
 
@@ -71,7 +73,7 @@ Which will output the flag :
 JFFI{stack_based_can_be_tricky_to_read}
 ```
 
-## 3. Flag
+## Flag
 
 ```
 JFFI{stack_based_can_be_tricky_to_read}

@@ -2,22 +2,22 @@
 
 ## Introduction
 
-### Description
-```
-Vous partez vous chercher une boisson au bar et vous engagez dans une discussion avec le barman... Il vous dit qu'il a trouvé comment hacker la machine à sous. Il vous demande votre courriel et vous recevez le fichier ci-dessous dans votre boite de réception.
+**Link** : [Javascript Casino 1](https://ctf.hackin.ca/challenges#Javascript%20casino%201%20%F0%9F%8E%B0-143)
 
-Au travail !
+**Points** : 100
 
-https://jffi24-jscasino.chals.hackin.ca
-```
+**Category** : Web 
 
-`Link` : [Javascript Casino 1](https://ctf.hackin.ca/challenges#Javascript%20casino%201%20%F0%9F%8E%B0-143)
+#### Problem
 
-`Points` : 100
+> Vous partez vous chercher une boisson au bar et vous engagez dans une discussion avec le barman... Il vous dit qu'il a trouvé comment hacker la machine à sous. Il vous demande votre courriel et vous recevez le fichier ci-dessous dans votre boite de réception.
+> Au travail !
+>
+> https://jffi24-jscasino.chals.hackin.ca
 
-`Category` : Web 
+## Solution
 
-## 1. Analysis
+### 1. Analysis
 
 The javascript source code is provided.
 
@@ -30,7 +30,6 @@ function jackpot_check(vals) {
     return (is_sorted(vals) == true && vals.length > 7 && has_no_duplicates(vals))
 }
 ```
-
 
 I use console.logs to check the output of each operation, since I am not familiar with javascript.
 I notice the function`vars.sort()` sorts the elements alphabetically, but the`is_sorted(vals)` methode 
@@ -47,10 +46,7 @@ function is_sorted(vals) {
 }
 ```
 
-
-## 2. Solution
-
-### 2.1 Constructing the array
+### 2. Constructing the array
 
 Here are the functions that modify our input before checking it :
 
@@ -95,7 +91,7 @@ Here's an array with a valid values :
 [5,4,3,6,7,800000]
 ```
 
-## 3. Flag
+## Flag
 
 ```
 JFFI{Je_suis_du_JavaScript.Je_trie_des_chiffres_comme_des_lettres}

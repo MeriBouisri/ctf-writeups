@@ -2,7 +2,7 @@
 
 ## Description
 
-Writeups for the CTF competition held at the [JFFI 2024](https://jffi.ca).
+Writeups for the CTF competition held at the [JFFI 2024](https://jffi.ca), designed by [Hubert Hackin'](https://hubert.hackin.ca/about/).
 
 
 ## Points

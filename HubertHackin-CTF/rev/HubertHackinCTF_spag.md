@@ -2,26 +2,26 @@
 
 ## Introduction
 
-### Description
-```
-J'aime les spaghetti avec du fromage, beaucoup de fromage. 
-Et beaucoup de spaghetti.
+**Link** : [spag](https://ctf.hackin.ca/challenges#spag-160)
 
-java -jar Fromage.jar 'JFFI{MonFlag}'
+**Points** : 100
 
-```
+**Category** : Reverse engineering
 
-`Link` : [spag](https://ctf.hackin.ca/challenges#spag-160)
+#### Problem
 
-`Points` : 100
+> J'aime les spaghetti avec du fromage, beaucoup de fromage. 
+> Et beaucoup de spaghetti.
+>
+> java -jar Fromage.jar 'JFFI{MonFlag}'
 
-`Category` : Reverse engineering
-
-## 1. Analysis
+## Solution
 
 We are given a file called `Fromage.jar`. 
 
-### 1.1 Extracting the jar file
+### 1. Analysis
+
+#### 1.1 Extracting the jar file
 
 A jar file is a compressed file that contains the java source code. We can unzip it like any compressed file :
 
@@ -31,12 +31,12 @@ $ unzip Fromage.jar
 
 This will extract all the files in the current directory.
 
-### 1.2 Fix the encoding (Optional)
+#### 1.2 Fix the encoding (Optional)
 
 It is difficult the recompress the program into a jar file because of the invalid encoding, caused by accents in class name (like `Comté.java`)
 I chose to simply rename the classes to something valid.
 
-### 1.3 Understanding the program
+#### 1.3 Understanding the program
 
 For the program to end at some point, there must be an end point where a certain method `miam(String, int)` must return `true`.
 Since there is only one possible flag, there must also be one single sequence of calls that corresponds to this flag.
@@ -51,7 +51,7 @@ Comte -> Tomme -> SaintNectaire -> Raclette -> Beaufort
 
 Which spells out `JFFI{`
 
-## 2. Solution
+### 2. Finding the correct sequence
 
 I start by looking for a possible end, and I eventually find it in `Roquefort.java` :
 
@@ -68,11 +68,11 @@ We can now work our way back by finding all references to `Roquefort` where it i
 
 ```java
 public class MothaisSurFeuille extends Fromage {
-  public static boolean miam(String s, int i) {
-    if (i>=s.length()) return false;
-    switch (s.charAt(i)) {
+    public static boolean miam(String s, int i) {
+        if (i>=s.length()) return false;
+        switch (s.charAt(i)) {
             // ...
-			case '}': return Roquefort.miam(s, i+1); 
+		    case '}': return Roquefort.miam(s, i+1); 
         }
     }
 }
@@ -98,7 +98,7 @@ Following this sequence gives us the following characters, in correct order
 JFFI{LEFROMAGECESTLAVIE}
 ```
 
-## 3. Flag
+## Flag
 
 ```
 JFFI{LEFROMAGECESTLAVIE}

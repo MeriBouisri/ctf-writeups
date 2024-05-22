@@ -2,27 +2,28 @@
 
 ## Introduction
 
-### Description
-```
-Alors que vous passez devant la salle fumeur, vous voyez un papier brûler dans le cendrier. 
-Par instinct, vous éteignez le feu et vous vous rendez compte qu'il y a du code sur ce papier! Du code...
+**Link** : [Javascript Casino 2](https://ctf.hackin.ca/challenges#Javascript%20casino%202%20%F0%9F%8E%B0%F0%9F%8E%B0-144)
 
-code_ptsd
+**Points** : 100
 
-Vous devriez analyser ça.
+**Category** : Web 
 
-https://jffi24-jscasino2.chals.hackin.ca
-```
+#### Problem
 
-`Link` : [Javascript Casino 2](https://ctf.hackin.ca/challenges#Javascript%20casino%202%20%F0%9F%8E%B0%F0%9F%8E%B0-144)
+> Alors que vous passez devant la salle fumeur, vous voyez un papier brûler dans le cendrier. 
+> Par instinct, vous éteignez le feu et vous vous rendez compte qu'il y a du code sur ce papier! Du code...
+> 
+> code_ptsd
+>
+> Vous devriez analyser ça.
+>
+> https://jffi24-jscasino2.chals.hackin.ca
 
-`Points` : 100
-
-`Category` : Web 
+## Solution
 
 ## 1. Analysis
 
-### 1.1 Javascript equality
+### 1.1 Understanding javascript
 
 The javascript source code is provided.
 
@@ -71,10 +72,7 @@ I find that the range where the digits must be equal to the integer (in-between 
 This means that all we have to do is ensure that this section is the same in our input.
 
 
-
-
-
-## 2. Solution
+## 2. Constructing the input
 
 ## 2.1 Bypassing the rigged input
 
@@ -129,7 +127,7 @@ So, an array with a valid values :
 [100845784645564180,0,0,0,0,0,0,0]
 ```
 
-## 3. Flag
+## Flag
 
 ```
 JFFI{C'est_encore_moi_le_JS.1=="1"_jusqu'à_un_certain_nombre_maximal}

@@ -2,22 +2,24 @@
 
 ## Introduction
 
-### Description
-```
-J'ai retrouvé mes notes de chimies. J'avais noté des informations importantes dessus mais je ne les vois pas."
-```
+**Link** : [Chimie 1](https://ctf.hackin.ca/challenges#Chimie%201-163)
 
-`Link` : [Chimie 1](https://ctf.hackin.ca/challenges#Chimie%201-163)
+**Points** : 50
 
-`Points` : 50
+**Category** : Reverse engineering
 
-`Category` : Reverse engineering
+#### Problem
 
-## 1. Analysis
+> J'ai retrouvé mes notes de chimies. 
+> J'avais noté des informations importantes dessus 
+> mais je ne les vois pas.
+
+
+## Solution
 
 We are given a file called `chimie1.ps`. 
 
-### 1.1 File extension .ps
+### 1. Analysis
 
 The file extension of the provided file is `.ps`, the extension for PostScript files.
 In the file, a link to a course for PostScript is given. However.
@@ -51,20 +53,19 @@ Inside the file, the flag is encoded, and the decoding function is given.
 flag1 key1 encode
 ```
 
-At the end of the program, the flag is show :
+At the end of the program, the flag is shown :
 
 ```ps
 x 2000 sub y moveto flag1 show
 ```
 
+### 2. Displaying the .ps file
 
-## 2. Solution
-
-### 2.1 Displaying the .ps file
+#### 2.1 Ghostscript
 
 It is possible to display the output of a PostScript program from the command line, thanks to `GhostScript`.
 
-```
+```bash
 $ apt install ghostscript
 $ gs chimie1.ps
 ```
@@ -72,6 +73,7 @@ $ gs chimie1.ps
 This will the contents of with `chimie1.ps`. This will display the other contents, but not the flag. 
 That's because it is drawn outside of the frame.
 
+#### 2.2 Fix code
 In order to see the flag, we can modify the last line of the program from this :
 
 ```
@@ -86,7 +88,7 @@ x y moveto flag1 show
 
 Which will display the flag just under the chemistry equation.
 
-## 3. Flag
+## Flag
 
 ```
 JFFI{you_dont_see_me}
