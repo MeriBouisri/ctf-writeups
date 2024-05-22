@@ -64,16 +64,15 @@ x 2000 sub y moveto flag1 show
 
 ### 2.1 Displaying the .ps file
 
-Thanks to this page ([How to view PDF and PostScript files](https://haroldpboas.gitlab.io/courses/math696/pdf-ps-how-to-view.html)), 
-I find that i can display the PostScript program with the frontend GhostScript tool `gv` 
+It is possible to display the output of a PostScript program from the command line, thanks to `GhostScript`.
 
 ```
-$ apt install gv
-$ gv chimie1.ps
+$ apt install ghostscript
+$ gs chimie1.ps
 ```
 
-This will open the software with `chimie1.ps`. To see the contents, we can select the option `Fit width to window`.
-This will display the other contents, but not the flag. That's because it is drawn too far away.
+This will the contents of with `chimie1.ps`. This will display the other contents, but not the flag. 
+That's because it is drawn outside of the frame.
 
 In order to see the flag, we can modify the last line of the program from this :
 
