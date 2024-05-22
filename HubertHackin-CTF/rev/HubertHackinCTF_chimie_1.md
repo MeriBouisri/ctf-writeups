@@ -17,8 +17,6 @@ J'ai retrouvé mes notes de chimies. J'avais noté des informations importantes 
 
 We are given a file called `chimie1.ps`. 
 
-## 1. Analysis
-
 ### 1.1 File extension .ps
 
 The file extension of the provided file is `.ps`, the extension for PostScript files.
